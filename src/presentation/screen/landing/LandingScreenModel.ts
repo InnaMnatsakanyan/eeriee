@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {ApiService} from "../../../data/service/ApiService";
 import {TrackInfoUIMapper} from "./mapper/TrackInfoUIMapper";
 import {LandingUITrackInfoCell} from "./model/LandingUITrackInfoCell";
@@ -35,19 +35,27 @@ export default function LandingScreenModel(
     function onSearchClick() {
         (async () => {
             try {
-                let artistTrackDataPromise = apiService.getTrackInfo(state.artist, state.track)
-                let artistTrackData = await artistTrackDataPromise
-                setState((prevState) => ({
-                    ...prevState,
-                    artist: prevState.artist,
-                    track: prevState.track,
-                    trackData: uiTrackMapper.toUITrackCell(artistTrackData)
-                }))
+                let artistTrackData = await apiService.getTrackInfo(state.artist, state.track)
+                console.log("API Response:", artistTrackData); // Log API response
+                if (artistTrackData.track) {
+                    const trackData = uiTrackMapper.toUITrackCell(artistTrackData);
+                    console.log("Mapped Track Data:", trackData); // Log mapped data
+                    setState((prevState) => ({
+                        ...prevState,
+                        trackData
+                    }));
+                } else {
+                    console.error("No track data found in the response");
+                }
             } catch (e) {
                 console.error()
             }
         })();
     }
+
+    useEffect(() => {
+        console.log("State updated:", state);
+    }, [state]);
 
     return {
         state,

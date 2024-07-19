@@ -26,7 +26,9 @@ export default function LandingScreen() {
                     <TrackInfoCellView
                         name={trackState.name}
                         duration={trackState.duration}
-                    /> : null}
+                    /> : (
+                        <p>No data available</p>
+                    )}
             </div>
         </div>
     )
