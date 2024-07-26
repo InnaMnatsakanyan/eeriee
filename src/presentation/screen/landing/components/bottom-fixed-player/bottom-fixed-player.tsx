@@ -1,4 +1,5 @@
 import './bottom-fixed-player.css'
+// import DoDrawWaveSurfer from './wave-surfer/wave-surfer'
 
 export default function DoDrawBottomFixedPlayer(props:any){
 
@@ -17,10 +18,10 @@ export default function DoDrawBottomFixedPlayer(props:any){
             <i className={true ? 'icon-media-playback-start-svgrepo-com' : 'icon-media-playback-stop-svgrepo-com' }></i>
             <i className='icon-media-skip-forward-svgrepo-com'></i>
             <i className='icon-hearth-svgrepo-com'></i>
-      
-           
+
            <div className='sound-wave-cont'>
-        <input type="range"  />
+        {/* <input type="range"  /> */}
+        <div id='waveform'></div>
         <div className='duration-cont'>
           <p>0:00 / <span>{props.details.trackDuration}</span></p>
         </div>
