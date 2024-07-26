@@ -1,13 +1,28 @@
-import WaveSurfer from 'wavesurfer.js'
-import audio from './sound.mp3'
+// import WaveSurfer from 'wavesurfer.js'
+// import sound from './sound.mp3'
 
-const wavesurfer = WaveSurfer.create({
-  container: document.body,
-  waveColor: "rgb(128, 0, 0)",
-  progressColor: 'rgb(255, 0, 0)',
-  url: audio,
-})
 
-wavesurfer.on('click', () => {
-  wavesurfer.play()
-})
+
+
+// function DoDrawWaves(props:any){
+//   const wavesurfer = WaveSurfer.create({
+//     container: document.body,
+//     waveColor: 'rgb(255, 0, 0)',
+//     progressColor: 'rgb(153, 0, 0)',
+//     url: props.details,
+//   })
+  
+//   wavesurfer.on('click', () => {
+//     wavesurfer.play()
+//   })
+//   console.log(props.details);
+  
+//   return (
+//     <div>
+    
+//     </div>
+//   )
+// }
+
+// export default DoDrawWaves
+export default {}
