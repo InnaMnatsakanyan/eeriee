@@ -13,7 +13,7 @@ export default function DoDrawBottomFixedPlayer(props:any){
          waveColor: 'rgb(255, 0, 0)',
          progressColor: 'rgb(153, 0, 0)',
          url: sound,
-         height: 70,
+         height: 30,
          // autoplay:true
       })
       
