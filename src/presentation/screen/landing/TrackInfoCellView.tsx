@@ -7,7 +7,7 @@ export default function TrackInfoCellView({ name, duration }: TrackInfoCellViewP
     return (
         <div>
             <h1>{name}</h1>
-            <h1>{duration}</h1>
+            <h3>{duration}</h3>
         </div>
     )
 }

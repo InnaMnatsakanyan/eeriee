@@ -1,9 +1,10 @@
-export interface ArtistTrackData {
+export interface TrackData {
     track: Track
 }
 
 export interface Track {
     name: string
+    mbid: string
     url: string
     duration: string
     streamable: Streamable
