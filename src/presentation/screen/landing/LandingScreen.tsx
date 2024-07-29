@@ -1,41 +1,62 @@
+import React from 'react';
+import Header from "../../components/Header";
 import LandingScreenModel from "./LandingScreenModel";
-import {ApiService} from "../../../data/service/ApiService";
-import {TrackInfoUIMapper} from "./mapper/TrackInfoUIMapper";
-import TrackInfoCellView from "./TrackInfoCellView";
-import DoDrawBottomFixedPlayer from "./components/bottom-fixed-player/bottom-fixed-player";
-import coverPhoto from '../../../assets/images/ahCover.jpeg'
+import { ApiService } from "../../../data/service/ApiService";
+import { TopArtistUIMapper } from "../screenMappers/TopArtistUIMapper";
+import styles from './LandingScreen.module.css';
+import TopArtistCellView from "./TopArtistCellView";
+import TopTracksCellView from "./TopTracksCellView";
+import {TopTracksUIMapper} from "../screenMappers/TopTracksUIMapper";
 
 export default function LandingScreen() {
-    const details = {cover:coverPhoto,name:'after hours',artist:'the weeknd',trackDuration:'3.25',}
-    const uiTrackInfoMapper = new TrackInfoUIMapper()
-    const { state, onSearchClick, onTrackSearchTextChange, onArtistSearchTextChange } = LandingScreenModel(new ApiService(), uiTrackInfoMapper)
-    const trackState = state.trackData
+    const uiTopTracksMapper = new TopTracksUIMapper();
+    const uiTopArtistMapper = new TopArtistUIMapper();
+
+    const { state, onTrackSearchTextChange, onTrackSearchClick, onKeyPress } = LandingScreenModel(new ApiService(), uiTopArtistMapper, uiTopTracksMapper);
+
+    const topTracksState = state.topTracksData;
+    const topArtistState = state.topArtistData;
+
+    console.log(state.topTracksData?.tracks[2].name)
+    console.log(state.topArtistData?.name.toString())
 
     return (
-        <div className='weatherScreenStyle'>
-            <input className='artistNameInput' type="text" placeholder='Artist name'
-                   value={state.artist}
-                   onChange={onArtistSearchTextChange}
-            />
-            <input className='trackNameInput' type="text" placeholder='Song name'
-                   value={state.track}
-                   onChange={onTrackSearchTextChange}
-            />
-            <button className='searchButton' onClick={onSearchClick}>Search</button>
-
         <div>
-            <DoDrawBottomFixedPlayer details={details}/>
-        </div>
+            <Header
+                onTrackSearchClick={onTrackSearchClick}
+                onTrackSearchTextChange={onTrackSearchTextChange}
+                onKeyPress={onKeyPress}
+            />
 
-            <div className='weatherAllData'>
-                {trackState ?
-                    <TrackInfoCellView
-                        name={trackState.name}
-                        duration={trackState.duration}
-                    /> : (
-                        <p>No data available</p>
-                    )}
+            <div className={styles.topPickCells}>
+                <div className={styles.topPickCellsIn}>
+                    {topArtistState ?
+                       <TopArtistCellView
+                           name={topArtistState.name}
+                          image={topArtistState.image}
+                      /> : null
+                   }
+                </div>
+            </div>
+
+            <div className={styles.similarTracksComponent}>
+                {topTracksState ?
+                    <p className={styles.resultText}>Trending Now</p>
+                    : null
+                }
+                <div className={styles.similarTracksTotal}>
+                    {topTracksState ? topTracksState.tracks.slice(0, 20).map((track, index) => (
+                        <TopTracksCellView
+                            key={track.mbid || index}
+                            name={track.name}
+                            artist={track.artist.name}
+                            mbid={track.mbid}
+                            duration={track.duration}
+                        />
+                    )) : null
+                    }
+                </div>
             </div>
         </div>
-    )
+    );
 }

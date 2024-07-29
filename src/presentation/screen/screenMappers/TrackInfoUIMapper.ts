@@ -1,11 +1,15 @@
-import {ArtistTrackData} from "../../../../data/model/ArtistTrackData";
-import {LandingUITrackInfoCell} from "../model/LandingUITrackInfoCell";
+import {TrackData} from "../../../data/model/TrackData";
+import {LandingUITrackInfoCell} from "../landing/model/LandingUITrackInfoCell";
 
 export class TrackInfoUIMapper {
-    toUITrackCell(data: ArtistTrackData) : LandingUITrackInfoCell {
+    toUITrackCell(data: TrackData) : LandingUITrackInfoCell {
         return {
             name: data.track.name,
             duration: this.formatDuration(data.track.duration),
+            url: data.track.url,
+            artistName: data.track.artist.name,
+            albumTitle: data.track.album.title,
+            albumImage: data.track.album.image[3]
         } as LandingUITrackInfoCell;
     }
 
