@@ -7,6 +7,10 @@ import styles from './LandingScreen.module.css';
 import TopArtistCellView from "./TopArtistCellView";
 import TopTracksCellView from "./TopTracksCellView";
 import {TopTracksUIMapper} from "../screenMappers/TopTracksUIMapper";
+import DoDrawBottomFixedPlayer from './components/bottom-fixed-player/bottom-fixed-player';
+import coverPhoto from '../../../assets/images/ahCover.jpeg'
+
+const details ={name:'After hours',artist:"The weeknd",cover:coverPhoto,duration:'4:48'}
 
 export default function LandingScreen() {
     const uiTopTracksMapper = new TopTracksUIMapper();
@@ -56,6 +60,7 @@ export default function LandingScreen() {
                     )) : null
                     }
                 </div>
+                <DoDrawBottomFixedPlayer details={details}/>
             </div>
         </div>
     );

@@ -46,7 +46,7 @@ export default function DoDrawBottomFixedPlayer(props:any){
         <div id='waveform'>
         </div>
         <div className='duration-cont'>
-          <p>0:00 / <span>{props.details.trackDuration}</span></p>
+          <p>0:00 / <span>{props.details.duration}</span></p>
         </div>
            </div>
            </div>
