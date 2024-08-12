@@ -1,16 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from "../../components/Header";
 import SearchScreenModel from "./SearchScreenModel";
-import { ApiService } from "../../../data/service/ApiService";
-import { SimilarTracksUIMapper } from "../screenMappers/SimilarTracksUIMapper";
+import { SimilarTracksUIMapper } from "../mappers/SimilarTracksUIMapper";
 import styles from './SearchScreen.module.css';
-import SimilarTracksCellView from "./SimilarTracksCellView";
+import TrackPreview from "./../../components/TrackPreview/TrackPreview";
+import {TrackService} from "../../../data/service/TrackService";
+import {Track} from "../../../data/model/TracksData";
+import TrackPlayer from "../../components/TrackPlayer/TrackPlayer";
 
 export default function SearchScreen() {
     const uiSimilarTracksMapper = new SimilarTracksUIMapper();
 
-    const { state, onTrackSearchTextChange, onTrackSearchClick, onKeyPress } = SearchScreenModel(new ApiService(), uiSimilarTracksMapper);
+    const { state, currentTrack , handlePlayTrack, handleClosePlayer, onTrackSearchTextChange, onTrackSearchClick, onKeyPress } = SearchScreenModel(new TrackService(), uiSimilarTracksMapper);
     const similarTracksState = state.similarTracksData;
+
+    // const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
+
+    // const handlePlayTrack = (track: Track) => {
+    //     setCurrentTrack(track); // Set the current track to play
+    // };
+
+    // const handleClosePlayer = () => {
+    //     setCurrentTrack(null); // Close the player
+    // };
 
     return (
         <div>
@@ -27,16 +39,16 @@ export default function SearchScreen() {
                     : null
                 }
                 <div className={styles.similarTracksTotal}>
-                    {similarTracksState ? similarTracksState.tracks.map((track, index) => (
-                        <SimilarTracksCellView
-                            key={track.mbid || index}
-                            name={track.name}
-                            artist={track.artist}
-                            mbid={track.mbid}
+                    {similarTracksState ? similarTracksState.similarTracks.map((track, index) => (
+                        <TrackPreview
+                            track={track as Track}
+                            onPlay={() => handlePlayTrack(track as Track)}
                         />
                     )) : null
                     }
                 </div>
+
+                {currentTrack && <TrackPlayer track={currentTrack} onClose={handleClosePlayer} />}
             </div>
         </div>
     );

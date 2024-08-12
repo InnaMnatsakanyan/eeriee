@@ -1,14 +1,14 @@
 import React from "react";
-import styles from './SearchScreen.module.css';
+import styles from './TrackPreview.module.css';
 import {Track} from "../../../data/model/TracksData";
-import { DurationUIMapper } from "../mappers/DurationUIMapper"
+import { DurationUIMapper } from "../../screen/mappers/DurationUIMapper"
 
-interface SimilarTracksCellViewProps {
+interface TrackPreviewProps {
     track: Track;
     onPlay: () => void;
 }
 
-export default function SimilarTracksCellView({ track, onPlay }: SimilarTracksCellViewProps) {
+export default function TrackPreview({ track, onPlay }: TrackPreviewProps) {
     const durationUIMapper = new DurationUIMapper();
 
     return (

@@ -1,18 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Header from "../../components/Header";
 import LandingScreenModel from "./LandingScreenModel";
 import { ApiService } from "../../../data/service/ApiService";
-import { TopArtistUIMapper } from "../screenMappers/TopArtistUIMapper";
+import { TopArtistUIMapper } from "../mappers/TopArtistUIMapper";
 import styles from './LandingScreen.module.css';
 import TopArtistCellView from "./TopArtistCellView";
 import TopTracksCellView from "./TopTracksCellView";
-import {TopTracksUIMapper} from "../screenMappers/TopTracksUIMapper";
-import SpaceBox from "../../components/SpaceBox/SpaceBox";
+import {TopTracksUIMapper} from "../mappers/TopTracksUIMapper";
+import coverPhoto from '../../../assets/images/ahCover.jpeg'
+
 
 export default function LandingScreen() {
     const uiTopTracksMapper = new TopTracksUIMapper();
     const uiTopArtistMapper = new TopArtistUIMapper();
-
 
     const { state, onTrackSearchTextChange, onTrackSearchClick, onKeyPress } = LandingScreenModel(new ApiService(), uiTopArtistMapper, uiTopTracksMapper);
 
@@ -22,9 +22,6 @@ export default function LandingScreen() {
     console.log(state.topTracksData?.tracks[2].name)
     console.log(state.topArtistData?.name.toString())
 
-    const [cameraPosition, setCameraPosition] = useState<[number, number, number]>([0, 0, 5]);
-    const [moveSpeed] = useState(1); // Movement speed for camera
-
     return (
         <div>
             <Header
@@ -32,16 +29,15 @@ export default function LandingScreen() {
                 onTrackSearchTextChange={onTrackSearchTextChange}
                 onKeyPress={onKeyPress}
             />
-            {/*<SpaceBox className={styles.canvasBg} cameraPosition={cameraPosition} moveSpeed={moveSpeed}/>*/}
 
             <div className={styles.topPickCells}>
                 <div className={styles.topPickCellsIn}>
                     {topArtistState ?
-                       <TopArtistCellView
-                           name={topArtistState.name}
-                          image={topArtistState.image}
-                      /> : null
-                   }
+                        <TopArtistCellView
+                            name={topArtistState.name}
+                            image={topArtistState.image}
+                        /> : null
+                    }
                 </div>
             </div>
 

@@ -1,0 +1,99 @@
+.player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.trackInfo {
+    min-width: 50vw;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    background: linear-gradient(to right, #1f1f1f, #233433, #222222, #033131, #1b1b1b);
+    height: 70px;
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: center;
+}
+
+.trackInfo > img {
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+}
+
+.trackDetails > h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+    color: #ffffff;
+    font-size: 16px;
+    margin: 0;
+}
+
+.trackDetails > h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+    color: #737373;
+    font-size: 14px;
+    margin: 0;
+}
+
+.albumImage {
+    width: 64px;
+    height: 64px;
+    margin-right: 16px;
+}
+
+.trackDetails {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    width: fit-content;
+}
+
+.currentTrackButtons {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.audioPlayer {
+    width: 100%;
+    height: 1px;
+    margin: 8px 0;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+}
+
+.progressBar {
+    width: 300px;
+    height: 2px;
+    background: #dcdcdc;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 20px;
+}
+
+.progress {
+    height: 100%;
+    background: #00C0C0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.1s linear;
+}
+
+.audioDefPlayer {
+    display: none;
+}

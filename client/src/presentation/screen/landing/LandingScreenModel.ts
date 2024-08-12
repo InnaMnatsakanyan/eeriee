@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
 import {ApiService} from "../../../data/service/ApiService";
-import {TopArtistUIMapper} from "../screenMappers/TopArtistUIMapper";
+import {TopArtistUIMapper} from "../mappers/TopArtistUIMapper";
 import {LandingUITopTracksCell} from "./model/LandingUITopTrackCell";
 import {LandingUITopArtistCell} from "./model/LandingUITopArtistCell";
 import { useNavigate } from "react-router-dom";
-import {TopTracksUIMapper} from "../screenMappers/TopTracksUIMapper";
+import {TopTracksUIMapper} from "../mappers/TopTracksUIMapper";
 
 interface LandingState {
     readonly artist: string
@@ -69,7 +69,7 @@ export default function LandingScreenModel(
     }
 
     function onTrackSearchClick() {
-        // navigate('/search', { state: { searchInput: state.track } });
+        navigate('/search', { state: { searchInput: state.track } });
     }
 
     const onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) =>{

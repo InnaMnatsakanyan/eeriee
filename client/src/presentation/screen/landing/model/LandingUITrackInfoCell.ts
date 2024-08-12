@@ -1,4 +1,4 @@
-import {Image} from "../../../../../client/src/data/model/TrackData";
+import {Image} from "../../../../data/model/TrackData";
 
 export interface LandingUITrackInfoCell {
     readonly name: string
