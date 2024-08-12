@@ -1,7 +1,8 @@
+// @ts-ignore
 import axios, {AxiosResponse} from 'axios'
 import {TrackData} from "../model/TrackData";
 import {ArtistData} from "../model/ArtistData";
-import {TracksData} from "../model/TracksData";
+// import {} from "../model/TrackData";
 import {TopTracksData} from "../model/TopTracksData";
 
 export class ApiService {
@@ -20,16 +21,16 @@ export class ApiService {
         }
     }
 
-    getTracks = async (trackName: string) : Promise<TracksData> => {
-        try {
-            const response: AxiosResponse = await axios.get( `${ApiService.baseurl}?method=track.search&track=${trackName}${ApiService.apiKey + ApiService.format}`)
-            console.log("API Response Data:", response.data);
-            return response.data;
-        } catch (error) {
-            console.error("Error fetching track info:", error);
-            throw error;
-        }
-    }
+    // getTracks = async (trackName: string) : Promise<TracksData> => {
+    //     try {
+    //         const response: AxiosResponse = await axios.get( `${ApiService.baseurl}?method=track.search&track=${trackName}${ApiService.apiKey + ApiService.format}`)
+    //         console.log("API Response Data:", response.data);
+    //         return response.data;
+    //     } catch (error) {
+    //         console.error("Error fetching track info:", error);
+    //         throw error;
+    //     }
+    // }
 
     getTopArtist = async () : Promise<ArtistData> => {
         try {

@@ -1,3 +1,13 @@
+.centerDivHelperClass {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgba(0, 0, 0, 0.52);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
 .topPickCells {
     display: flex;
     flex-direction: row;
@@ -117,4 +127,8 @@
     top: 0;
     left: 0;
     /*z-index: -1;*/
+}
+
+.LoaderComponent {
+
 }

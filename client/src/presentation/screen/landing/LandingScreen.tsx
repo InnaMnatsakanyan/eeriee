@@ -3,12 +3,11 @@ import Header from "../../components/Header";
 import LandingScreenModel from "./LandingScreenModel";
 import { ApiService } from "../../../data/service/ApiService";
 import { TopArtistUIMapper } from "../mappers/TopArtistUIMapper";
+// @ts-ignore
 import styles from './LandingScreen.module.css';
 import TopArtistCellView from "./TopArtistCellView";
 import TopTracksCellView from "./TopTracksCellView";
 import {TopTracksUIMapper} from "../mappers/TopTracksUIMapper";
-import coverPhoto from '../../../assets/images/ahCover.jpeg'
-
 
 export default function LandingScreen() {
     const uiTopTracksMapper = new TopTracksUIMapper();
