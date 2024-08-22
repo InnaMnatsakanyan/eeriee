@@ -6,12 +6,36 @@ import { TopArtistUIMapper } from "../screenMappers/TopArtistUIMapper";
 import styles from './LandingScreen.module.css';
 import TopArtistCellView from "./TopArtistCellView";
 import TopTracksCellView from "./TopTracksCellView";
-import {TopTracksUIMapper} from "../screenMappers/TopTracksUIMapper";
-import DoDrawBottomFixedPlayer from './components/bottom-fixed-player/bottom-fixed-player';
+import { TopTracksUIMapper } from "../screenMappers/TopTracksUIMapper";
+// import DoDrawBottomFixedPlayer from './components/bottom-fixed-player/bottom-fixed-player';
 import coverPhoto from '../../../assets/images/ahCover.jpeg'
+import covers from '../../../assets/images/afterHoursDelux.jpeg'
+import DoDrawArtistDiscography from './components/Artist Discography Component/artistDischography';
+// const details ={name:'After hours',artist:"The weeknd",cover:coverPhoto,duration:'4:48'}
+const trackList = [
+    'Alone Again',
+    'Too Late',
+    'Hardets To Love',
+    'Scared To live',
+    'Snowchild',
+    'Escape From LA',
+    'Heartless',
+    'Faith',
+    'Blinding Lights',
+    'In Your Eyes',
+    'Save Your Tears',
+    'Repeat After Me (Interlude)',
+    'After Hours',
+    'Until I Bleed Out'
+]
+const discCov = [
+    coverPhoto, coverPhoto, coverPhoto, coverPhoto, coverPhoto, coverPhoto,
+    coverPhoto, coverPhoto, coverPhoto]
+const aboutArtist = "The famous Canadian singer started his path back in early 2010 with his first mixtape called ‘House Of Balloons’. Nobody could expect that with that mixtape Abel would invent new genre as his fans loves to call it ‘Dark R & B’. After all this years Abel become one of most successful artists of ourgeneration.He’s also first artist to ever reach100 m streams in one monthThe famous Canadian singer started his path back in early 2010 with his first mixtape called ‘House Of Balloons’. Nobody could expect that with that mixtape Abel would invent new genre as his fans loves to call it ‘Dark R & B’. After all this years Abel become one of most successful artists of ourgeneration.He’s also first artist to ever reach100 m streams in one monthThe famous Canadian singer started his path back in early 2010 with his first mixtape called ‘House Of Balloons’. Nobody could expect that with that mixtape Abel would invent new genre as his fans loves to call it ‘Dark R & B’. After all this years Abel become one of most successful artists of ourgeneration.He’s also first artist to ever reach100 m streams in one month "
 
-const details ={name:'After hours',artist:"The weeknd",cover:coverPhoto,duration:'4:48'}
+const discographyDetails = { discCov, name: "The Weeknd", birthDate: '   Born February 16, 1990,Toronto, Ontario, Canada', about: aboutArtist }
 
+const albumDetails = { name: 'After Hours', issueYear: '2020', tracks: trackList, cover: covers }
 export default function LandingScreen() {
     const uiTopTracksMapper = new TopTracksUIMapper();
     const uiTopArtistMapper = new TopArtistUIMapper();
@@ -35,11 +59,11 @@ export default function LandingScreen() {
             <div className={styles.topPickCells}>
                 <div className={styles.topPickCellsIn}>
                     {topArtistState ?
-                       <TopArtistCellView
-                           name={topArtistState.name}
-                          image={topArtistState.image}
-                      /> : null
-                   }
+                        <TopArtistCellView
+                            name={topArtistState.name}
+                            image={topArtistState.image}
+                        /> : null
+                    }
                 </div>
             </div>
 
@@ -60,7 +84,8 @@ export default function LandingScreen() {
                     )) : null
                     }
                 </div>
-                <DoDrawBottomFixedPlayer details={details}/>
+                {/* <DoDrawBottomFixedPlayer details={details}/> */}
+                <DoDrawArtistDiscography details={discographyDetails} />
             </div>
         </div>
     );

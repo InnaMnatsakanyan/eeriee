@@ -49,11 +49,11 @@ a {
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('./assets/icons/icomoon/fonts/icomoon.eot?anb5b5');
-  src:  url('./assets/icons/icomoon/fonts/icomoon.eot?anb5b5#iefix') format('embedded-opentype'),
-    url('./assets/icons/icomoon/fonts/icomoon.ttf?anb5b5') format('truetype'),
-    url('./assets/icons/icomoon/fonts/icomoon.woff?anb5b5') format('woff'),
-    url('./assets/icons/icomoon/fonts/icomoon.svg?anb5b5#icomoon') format('svg');
+  src:  url('./assets/icons/icomoon-v1.0/fonts/icomoon.eot?cm24rp');
+  src:  url('./assets/icons/icomoon-v1.0/fonts/icomoon.eot?cm24rp#iefix') format('embedded-opentype'),
+    url('./assets/icons/icomoon-v1.0/fonts/icomoon.ttf?cm24rp') format('truetype'),
+    url('./assets/icons/icomoon-v1.0/fonts/icomoon.woff?cm24rp') format('woff'),
+    url('./assets/icons/icomoon-v1.0/fonts/icomoon.svg?cm24rp#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -74,11 +74,15 @@ a {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-arrow-left:before {
+  content: "\e909";
+}
 .icon-sound-plus-svgrepo-com:before {
   content: "\e900";
 }
 .icon-shuffle-svgrepo-com-1:before {
   content: "\e901";
+  color: #1c274c;
 }
 .icon-repeat-svgrepo-com:before {
   content: "\e902";

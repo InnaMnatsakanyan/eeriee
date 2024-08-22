@@ -1,0 +1,86 @@
+.discography-container {
+    width: 100%;
+    max-width: 1513px;
+    height: 982px;
+    background: rgb(82, 37, 4);
+    background: linear-gradient(170deg, rgba(82, 37, 4, 1) 53%, rgba(0, 0, 0, 1) 76%);
+    border-radius: 50px;
+    /* padding-top:34px;
+    padding-bottom: 59px;
+    padding-left: 51px;
+    padding-right: 12px; */
+    padding: 40px;
+    margin-bottom: 100px;
+    display: flex;
+    position: relative;
+}
+.covers-grid-cont{
+    width: 868px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 40px;
+    grid-row-gap: 85px;
+}
+.covers-cell{
+    width: 230px;
+    height: 230px;
+}
+.info-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+}
+.info-cont h5{
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 60px;
+}
+.info-cont span{
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    white-space: no-wrap;
+}
+.info-cont p {
+    width: 500px;
+    height: 460px;
+    overflow: hidden;
+    white-space: no-wrap;
+    color: #ffffff;
+    font-size: 28px;
+}
+.info-cont div {
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+.show-more-artist-info{
+    transform: rotate(180deg);
+    position: absolute;
+    right: -30px;
+    bottom: 270px;
+    color: #522504;
+    cursor: pointer;
+}
+.explore-button{
+    position: absolute;
+    right: 100px;
+    bottom: 80px;
+    color: #ffffff;
+    font-size: 36px;
+}
+.explore-arrow{
+    color: #522504;
+    display: block;
+    transform: rotate(-90deg);
+    cursor: pointer;
+}
+.passive-player{
+    width: 274px;
+    height: 68px;
+    align-self: flex-start;
+    margin-top: 150px;
+}
